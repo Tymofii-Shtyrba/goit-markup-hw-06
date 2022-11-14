@@ -19,6 +19,10 @@
     --modal-close-btn: rgba(0, 0, 0, 0.1);
     --portfolio-overlay-color: rgba(33, 150, 243, 0.9);
     --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --form-field-border-color: rgba(33, 33, 33, 0.2);
+    --mailing-field-border: rgba(255, 255, 255, 0.3);
+    --mailing-plaseholder-color: rgba(255, 255, 255, 0.6);
+    --submit-button-color: #188CE8;
 }
 
 /*Global_styles*/
@@ -572,6 +576,10 @@ img {
     margin-right: 70px;
 }
 
+.invite-links-wrapper {
+    margin-right: 93px;
+}
+
 .invite-title {
     font-weight: 700;
     font-size: 14px;
@@ -605,6 +613,56 @@ img {
 .basement-social-link:focus {
     background-color: var(--first-logo-color);
     transition: background-color 250ms var(--transition-function);
+}
+
+.mailing-title {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.mailing-wrapper {
+    position: relative;
+}
+
+.mailing-field {
+    border: solid 1px var(--mailing-field-border);
+    background-color: transparent;
+    border-radius: 4px;
+    padding:  15px 16px;
+    width: 358px;
+    outline: transparent;
+    margin-right: 12px;
+    color: var(--main-color);
+}
+
+.mailing-field::placeholder {
+    color: var(--mailing-plaseholder-color);
+}
+
+.mailing-button {
+    background-color: var(--first-logo-color);
+    border-color: transparent;
+    border-radius: 4px;
+    padding: 10px 62px 10px 28px;
+    color: var(--main-color);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0.06em;
+}
+
+.send-icon {
+    position: absolute;
+    right:  28px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: var(--main-color);
 }
 
 /* Modal window */
@@ -665,6 +723,11 @@ img {
 
 .close-btn-icon {
     fill: var(--second-logo-color);
+    transition: fill 250ms var(--transition-function)
+}
+
+.close-btn:hover .close-btn-icon {
+    fill: var(--first-logo-color);
 }
 
 .modal-title {
@@ -677,9 +740,120 @@ img {
     display: block;
 }
 
-.back-call-form {
+/* Form_Styles */
+
+.form-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+
+}
+
+.form-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    transition: fill 250ms var(--transition-function);
+}
+
+.form-field {
+    outline: transparent;
+    width: 100%;
+    padding: 12px 12px 12px 42px;
+    border-radius:  4px;
+    border:  solid 1px;
+    border-color: var(--form-field-border-color);
+    transition: border-color 250ms var(--transition-function);
+}
+
+.form-field:focus {
+    border-color: var(--first-logo-color);
+}
+
+.form-field:focus + .form-icon {
+    fill: var(--first-logo-color);
+}
+
+.comment-field {
+    padding: 12px 16px;
+    resize: none;
+    width: 448px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
+    color: var(--descriprion-color);
+}
+
+.checkbox-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.checkbox-label {
+    margin-bottom: 30px;
+}
+
+.form-checkbox {
+    appearance: none;
+}
+
+.form-checkbox-icon .uncheck {
+    opacity: 0;
+    transition: opacity 250ms var(--transition-function);
+}
+
+.form-checkbox:checked + .form-checkbox-icon .uncheck {
+    opacity: 1;
+    
+}
+
+.form-checkbox-icon .check {
+    opacity: 1;
+    transition: opacity 250ms var(--transition-function);
+}
+
+.form-checkbox:checked + .form-checkbox-icon .check {
+    opacity: 0;
+}
+
+.terms-chackbox {
+    appearance: none;
+}
+
+.checkbox-descr {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+    color: var(--descriprion-color);
+    user-select: none;
+}
+
+.terms-link {
+    color: var(--first-logo-color);
+}
+
+.submit-button {
+    padding:  10px 52px;
+    color: var(--main-color);
+    background-color: var(--submit-button-color);
+    border-color: transparent;
+    border-radius: 4px;
+    transition: box-shadow 250ms var(--transition-function);
+
+}
+
+.submit-button:hover,
+.submit-button:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 /*PORTFOLIO_PAGE_STYLES*/
@@ -721,7 +895,6 @@ img {
     margin: 0px auto;
     width: 1200px;
     padding: 0px 15px;
-    /* outline: red solid 1px; */
 }
 
 .filters-list {
